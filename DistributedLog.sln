@@ -5,6 +5,15 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLog.Master", "DistributedLog.Master\DistributedLog.Master.csproj", "{06A3250D-E6D9-465D-A65D-E56074494AEE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLog.Replica", "DistributedLog.Replica\DistributedLog.Replica.csproj", "{9813FF25-D749-4CD9-B110-78A6C330925D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLog.Contracts", "DistributedLog.Contracts\DistributedLog.Contracts.csproj", "{362DF4D9-9BD6-4274-9BB9-06F3647BC2E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{EB7D5109-94F8-4CFE-93DD-56F83B471109}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +24,14 @@ Global
 		{06A3250D-E6D9-465D-A65D-E56074494AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06A3250D-E6D9-465D-A65D-E56074494AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06A3250D-E6D9-465D-A65D-E56074494AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9813FF25-D749-4CD9-B110-78A6C330925D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9813FF25-D749-4CD9-B110-78A6C330925D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9813FF25-D749-4CD9-B110-78A6C330925D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9813FF25-D749-4CD9-B110-78A6C330925D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362DF4D9-9BD6-4274-9BB9-06F3647BC2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362DF4D9-9BD6-4274-9BB9-06F3647BC2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362DF4D9-9BD6-4274-9BB9-06F3647BC2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362DF4D9-9BD6-4274-9BB9-06F3647BC2E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

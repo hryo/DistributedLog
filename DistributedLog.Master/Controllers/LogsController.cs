@@ -1,4 +1,5 @@
 using DistributedLog.Master.Application;
+using DistributedLog.Master.Application.Requests;
 using DistributedLog.Master.Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,12 +10,10 @@ namespace DistributedLog.Master.Controllers
     [Route("[controller]")]
     public class LogsController : ControllerBase
     {
-        private readonly ILogger<LogsController> _logger;
         private readonly ReplicatedStorage _storage;
 
-        public LogsController(ReplicatedStorage storage, ILogger<LogsController> logger)
+        public LogsController(ReplicatedStorage storage)
         {
-            _logger = logger;
             _storage = storage;
         }
 
@@ -27,10 +26,9 @@ namespace DistributedLog.Master.Controllers
         }
 
         [HttpPost(Name = "AppendMessage")]
-        public async Task<IActionResult> Post(string message)
+        public async Task<IActionResult> Post(AppendMessageRequest request)
         {
-            var entry = new LogEntry(message);
-            await _storage.Append(entry);
+            await _storage.Append(request.Message, request.ReplicationFactor);
             return Ok();
         }
     }

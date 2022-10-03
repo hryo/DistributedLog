@@ -6,17 +6,17 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["DistributedLog.Master/DistributedLog.Master.csproj", "DistributedLog.Master/"]
+COPY ["DistributedLog.Replica/DistributedLog.Replica.csproj", "DistributedLog.Replica/"]
 COPY ["DistributedLog.Contracts/DistributedLog.Contracts.csproj", "DistributedLog.Contracts/"]
-RUN dotnet restore "DistributedLog.Master/DistributedLog.Master.csproj"
+RUN dotnet restore "DistributedLog.Replica/DistributedLog.Replica.csproj"
 COPY . .
-WORKDIR "/src/DistributedLog.Master"
-RUN dotnet build "DistributedLog.Master.csproj" -c Release -o /app/build
+WORKDIR "/src/DistributedLog.Replica"
+RUN dotnet build "DistributedLog.Replica.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DistributedLog.Master.csproj" -c Release -o /app/publish
+RUN dotnet publish "DistributedLog.Replica.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DistributedLog.Master.dll"]
+ENTRYPOINT ["dotnet", "DistributedLog.Replica.dll"]

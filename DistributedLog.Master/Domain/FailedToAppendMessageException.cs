@@ -9,4 +9,12 @@ namespace DistributedLog.Master.Application
         {
         }
     }
+
+    public class ReplicaNotAvailableException : Exception
+    {
+        public ReplicaNotAvailableException(string replicaUrl)
+        : base($"Replica {replicaUrl} not available")
+        {
+        }
+    }
 }
